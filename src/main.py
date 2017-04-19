@@ -4,10 +4,12 @@ import tornado.web
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        with open("/etc/hehe/conf.ini", "r") as fp:
-            content = fp.read()
+        content = '''
+            mem=256
+            cpu=1
+            '''
 
-            self.render('index.html', content=content)
+        self.render('index.html', content=content)
 
 
 if __name__ == "__main__":
